@@ -1,0 +1,1 @@
+console.lot('hello world');
