@@ -1,14 +1,12 @@
-export default function createIteratorObject(report) {
-    const newArray = [];
-  
-    for (const key in report.allEmployees) {
-      if (key) {
-        for (const newKey in report.allEmployees[key]) {
-          if (newKey) {
-            newArray.push(report.allEmployees[key][newKey]);
-          }
-        }
-      }
+export default function iterateThroughObject(reportWithIterator) {
+  let anotherOne = '';
+  for (let i = 0; i < reportWithIterator.length; i += 1) {
+    if (i === reportWithIterator.length - 1) {
+      anotherOne += reportWithIterator[i];
+    } else {
+      anotherOne += `${reportWithIterator[i]} | `;
     }
-    return newArray;
   }
+
+  return anotherOne;
+}
