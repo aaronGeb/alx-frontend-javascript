@@ -45,7 +45,7 @@ export default class HolbertonCourse {
 
   set students(value) {
     if (typeof value !== 'object') {
-      throw new TypeError('Student must be an object');
+      throw new TypeError('Name must be an object');
     } else {
       this._students = value;
     }
