@@ -1,6 +1,6 @@
 export default class HolbertonCourse {
-  // I check the module with eslint.
   constructor(name, length, students) {
+    /* eslint no-underscore-dangle: ["error", { "allow": ["_name", "_length", "_students"] }] */
     if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
     }
@@ -8,7 +8,7 @@ export default class HolbertonCourse {
       throw new TypeError('Length must be a number');
     }
     if (typeof students !== 'object') {
-      throw new TypeError('Student must be an object');
+      throw new TypeError('Students must be an object');
     }
     this._name = name;
     this._length = length;
@@ -19,35 +19,35 @@ export default class HolbertonCourse {
     return this._name;
   }
 
-  set name(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Name must be a string');
-    } else {
-      this._name = value;
-    }
-  }
-
   get length() {
     return this._length;
   }
 
-  set length(value) {
-    if (typeof value !== 'number') {
-      throw new TypeError('Length must be a number');
+  get students() {
+    return this._students;
+  }
+
+  set name(value) {
+    if (typeof value === 'string') {
+      this._name = value;
     } else {
-      this.length = value;
+      throw new TypeError('Name must be a string');
     }
   }
 
-  get students() {
-    return this._students();
+  set length(value) {
+    if (typeof value === 'number') {
+      this._length = value;
+    } else {
+      throw new TypeError('Name must be a number');
+    }
   }
 
   set students(value) {
-    if (typeof value !== 'object') {
-      throw new TypeError('Name must be an object');
-    } else {
+    if (typeof value === 'object') {
       this._students = value;
+    } else {
+      throw new TypeError('Name must be an object');
     }
   }
 }
