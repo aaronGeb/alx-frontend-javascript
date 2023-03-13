@@ -6,15 +6,15 @@ export default class Building {
     const superProto = Building.prototype;
     /* eslint no-prototype-builtins: "error" */
     const missing = Object.getOwnPropertyNames(superProto).find(
-      (name) =>
-        typeof superProto[name] === 'function' &&
-        !Object.prototype.hasOwnProperty.call(proto, name)
+      (name) => typeof superProto[name] === 'function'
+        && !Object.prototype.hasOwnProperty.call(proto, name),
     );
 
-    if (missing)
+    if (missing) {
       throw new Error(
-        'Class extending Building must override evacuationWarningMessage'
+        'Class extending Building must override evacuationWarningMessage',
       );
+    }
   }
 
   get sqft() {
